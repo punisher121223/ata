@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ورود</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            direction: rtl;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        input {
+            margin: 10px 0;
+            padding: 8px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+        }
+        .welcome {
+            color: green;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>ورود به سیستم</h1>
+        <input type="text" id="username" placeholder="یوزرنیم" autocomplete="off"><br>
+        <input type="password" id="password" placeholder="رمز"><br>
+        <button onclick="checkLogin()">ورود</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+            
+            if (username === 'ata' && password === '12345') {
+                message.innerHTML = 'سلام عطا جون چطوری عموییی؟';
+                message.className = 'welcome';
+                document.getElementById('container').innerHTML = '<h1 class="welcome">سلام عطا جون چطوری عموییی؟</h1>';
+            } else {
+                message.innerHTML = 'یوزرنیم یا رمز اشتباهه!';
+                message.className = 'error';
+            }
+        }
+    </script>
+</body>
+</html>
